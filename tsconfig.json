@@ -2,7 +2,7 @@
   "compilerOptions": {
     "downlevelIteration": true,
     "outDir": "./dist-tsc",
-    "module": "esnext",
+    "module": "es2020",
     "target": "es2015",
     "sourceMap": true,
     "declaration": true,
