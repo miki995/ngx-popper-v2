@@ -1,8 +1,8 @@
 {
   "compilerOptions": {
     "outDir": "./dist-tsc",
-    "module": "commonjs",
-    "target": "es5",
+    "module": "es2020",
+    "target": "es2015",
     "sourceMap": true,
     "declaration": true,
     "moduleResolution": "node",

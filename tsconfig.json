@@ -40,5 +40,11 @@
   "angularCompilerOptions": {
     "preserveWhiteSpace": false
 
+  },
+  "awesomeTypescriptLoaderOptions": {
+    "useWebpackText": true,
+    "useTranspileModule": true,
+    "doTypeCheck": true,
+    "forkChecker": true
   }
 }
