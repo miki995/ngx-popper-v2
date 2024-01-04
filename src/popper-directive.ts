@@ -7,7 +7,7 @@ import {
   SimpleChange,
   Output,
   OnDestroy,
-  EventEmitter, OnInit, Renderer2, ChangeDetectorRef, Inject, ElementRef
+  EventEmitter, OnInit, Renderer2, ChangeDetectorRef, Inject, ElementRef, Injectable
 } from '@angular/core';
 import {Placement, Placements, PopperContentOptions, Trigger, Triggers} from './popper-model';
 import {PopperContent} from './popper-content';
@@ -32,6 +32,7 @@ export class PopperController implements OnInit, OnDestroy, OnChanges {
               private elementRef: ElementRef,
               private renderer: Renderer2,
               @Inject('popperDefaults') private popperDefaults: PopperContentOptions = {}) {
+    /*@@TODO MIKI */ console.error({...PopperController.baseOptions, ...this.popperDefaults});
     PopperController.baseOptions = {...PopperController.baseOptions, ...this.popperDefaults};
   }
 
@@ -50,6 +51,10 @@ export class PopperController implements OnInit, OnDestroy, OnChanges {
 
   @Input('popper')
   content: string | PopperContent;
+
+  @Input() set content2(data: string | PopperContent) {
+    /*@@TODO MIKI */ console.error(data);
+  }
 
   @Input('popperDisabled')
   disabled: boolean;
@@ -187,6 +192,9 @@ export class PopperController implements OnInit, OnDestroy, OnChanges {
     this.hideOnClickOutside = typeof this.hideOnClickOutside === 'undefined' ?
       this.closeOnClickOutside : this.hideOnClickOutside;
 
+    /*@@TODO MIKI */ console.error(this.content);
+    /*@@TODO MIKI */ console.error('yess');
+    /*@@TODO MIKI */ console.error(this.content);
     if (typeof this.content === 'string') {
       const text = this.content;
       this.popperContent = this.constructContent();
@@ -365,6 +373,7 @@ export class PopperController implements OnInit, OnDestroy, OnChanges {
 
   private constructContent(): PopperContent {
     this.popperContentRef = this.viewContainerRef.createComponent(this.popperContentClass);
+    /*@@TODO MIKI */ console.error(this.popperContentRef);
     return this.popperContentRef.instance as PopperContent;
   }
 

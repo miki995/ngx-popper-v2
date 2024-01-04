@@ -104,6 +104,7 @@ export class PopperContent implements OnDestroy {
     private renderer: Renderer2,
     private viewRef: ViewContainerRef,
     private CDR: ChangeDetectorRef) {
+    /*@@TODO MIKI */ console.error('idee');
   }
 
   ngOnDestroy() {

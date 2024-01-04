@@ -1,5 +1,5 @@
 import {Component, ElementRef, ViewEncapsulation, OnInit, ViewChild} from '@angular/core';
-import {PopperContent} from '../../dist';
+import { PopperContent } from '../../src';
 /**
  * This class represents the main application component.
  */
@@ -16,14 +16,14 @@ export class AppComponent implements OnInit {
     }
   };
   example1select: string = 'top';
-  @ViewChild('popper3Content') popper3Content: any;
+  @ViewChild('popper3Content', { static: true }) popper3Content: any;
 
   constructor(private elem: ElementRef) {
   }
 
   ngOnInit() {
     setInterval(() => {
-      this.popper3Content.update();
+      // this.popper3Content.update();
     }, 10);
   }
 
