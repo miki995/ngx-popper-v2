@@ -1,11 +1,11 @@
 const path = require('path');
-const {CheckerPlugin} = require('awesome-typescript-loader');
 const webpack = require('webpack');
 const chalk = require('chalk');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ProgressBarPlugin = require('progress-bar-webpack-plugin');
 
 module.exports = {
+  mode: "development",
   entry: './example/app/index.ts',
   output: {
     filename: '[name].js',
@@ -14,12 +14,12 @@ module.exports = {
   resolve: {
     extensions: ['.ts', '.tsx', '.js', '.jsx', '.html', '.css']
   },
-  devtool: 'source-map',
+  devtool: "inline-source-map",
   module: {
     rules: [
       {
         test: /\.ts?$/,
-        use: ['awesome-typescript-loader?configFileName="./tsconfig.json"', 'angular2-template-loader'],
+        use: ['ts-loader', 'angular2-template-loader'],
       //  exclude: [/node_modules/, /dist/, /dist-tsc/, /test/, /public_api/]
       },
       {
@@ -30,7 +30,6 @@ module.exports = {
     ]
   },
   plugins: [
-    new CheckerPlugin(),
     new HtmlWebpackPlugin({
       inject: true,
       template: './example/index.html'
@@ -39,11 +38,9 @@ module.exports = {
       format: '  build [' + chalk.blue.bold(':bar') + ']' + chalk.green.bold(':percent') + ' (:elapsed seconds) => :msg...  ',
       clear: false
     }),
-    new webpack.HotModuleReplacementPlugin()
   ],
   devServer: {
     // https: true,
-    hot: true,
     port: 8888,
     historyApiFallback: {
       index: './example/'

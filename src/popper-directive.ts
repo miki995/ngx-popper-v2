@@ -2,7 +2,6 @@ import {
   Directive,
   ComponentRef,
   ViewContainerRef,
-  ComponentFactoryResolver,
   Input,
   OnChanges,
   SimpleChange,
@@ -30,7 +29,6 @@ export class PopperController implements OnInit, OnDestroy, OnChanges {
 
   constructor(private viewContainerRef: ViewContainerRef,
               private changeDetectorRef: ChangeDetectorRef,
-              private resolver: ComponentFactoryResolver,
               private elementRef: ElementRef,
               private renderer: Renderer2,
               @Inject('popperDefaults') private popperDefaults: PopperContentOptions = {}) {
@@ -366,8 +364,7 @@ export class PopperController implements OnInit, OnDestroy, OnChanges {
   }
 
   private constructContent(): PopperContent {
-    const factory = this.resolver.resolveComponentFactory(this.popperContentClass);
-    this.popperContentRef = this.viewContainerRef.createComponent(factory);
+    this.popperContentRef = this.viewContainerRef.createComponent(this.popperContentClass);
     return this.popperContentRef.instance as PopperContent;
   }
 

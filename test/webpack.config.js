@@ -1,5 +1,4 @@
 const path = require('path');
-const {CheckerPlugin} = require('awesome-typescript-loader');
 //const OpenBrowserPlugin = require('open-browser-webpack-plugin');
 const chalk = require('chalk');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
@@ -20,7 +19,7 @@ module.exports = {
     rules: [
       {
         test: /\.ts?$/,
-        use: ['awesome-typescript-loader?configFileName="./tsconfig.json"', 'angular2-template-loader'],
+        use: ['ts-loader', 'angular2-template-loader'],
         exclude:  [/__tests__/]
       },
       {
@@ -31,7 +30,6 @@ module.exports = {
     ]
   },
   plugins: [
-    new CheckerPlugin(),
     new HtmlWebpackPlugin({
       inject: true,
       template: './test/index.html'

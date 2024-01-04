@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "emitDecoratorMetadata": true,
     "downlevelIteration": true,
     "outDir": "./dist-tsc",
     "module": "es2020",
@@ -39,12 +40,5 @@
   ],
   "angularCompilerOptions": {
     "preserveWhiteSpace": false
-
   },
-  "awesomeTypescriptLoaderOptions": {
-    "useWebpackText": true,
-    "useTranspileModule": true,
-    "doTypeCheck": true,
-    "forkChecker": true
-  }
 }

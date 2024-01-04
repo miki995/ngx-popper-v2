@@ -18,4 +18,6 @@ import { AppModule } from './app.module';
 
 enableProdMode();
 
-platformBrowserDynamic().bootstrapModule(AppModule);
+platformBrowserDynamic()
+    .bootstrapModule(AppModule, { preserveWhitespaces: true })
+    .catch(err => console.error(err));

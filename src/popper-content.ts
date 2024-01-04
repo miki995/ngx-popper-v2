@@ -161,6 +161,7 @@ export class PopperContent implements OnDestroy {
       }
     }
     this.determineArrowColor();
+    // @ts-ignore
     popperOptions.modifiers = Object.assign(popperOptions.modifiers, this.popperOptions.popperModifiers);
 
     this.popperInstance = new Popper(

@@ -15,9 +15,6 @@ import {PopperContent} from './popper-content';
   exports: [
     PopperController,
     PopperContent
-  ],
-  entryComponents: [
-    PopperContent
   ]
 })
 export class NgxPopperModule {
