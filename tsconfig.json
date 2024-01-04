@@ -3,7 +3,7 @@
     "downlevelIteration": true,
     "outDir": "./dist-tsc",
     "module": "es2020",
-    "target": "es2015",
+    "target": "es2020",
     "sourceMap": true,
     "declaration": true,
     "moduleResolution": "node",
